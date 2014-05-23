@@ -100,7 +100,6 @@
         //用transform设置位置
 
         function setPosition($e, x, y){
-            console.log(123);
             $e.css({
                 '-webkit-transform': 'translate('+x+'px,'+y+'px)',
                 '-moz-transform': 'translate('+x+'px,'+y+'px)',
@@ -125,7 +124,7 @@
             //$imgs.eq(switchIndex).css({'z-index':top_z_index,'left':initPosition.x, 'top':initPosition.y}).show();
 
             setPosition($imgs.eq(switchIndex).css({'z-index':top_z_index}).show(),initPosition.x,initPosition.y);
-            //$imgs.eq(currIndex).css({'z-index':''}).hide();
+            $imgs.eq(currIndex).css({'z-index':''}).hide();
             currIndex = switchIndex;
         };
         //链式返回
