@@ -11,7 +11,7 @@
 			$rgWrapper = this,
 			$rgItems = $rgWrapper.find('li'), //.responsiveGallery-item
 			rgItemsLength = $rgItems.length,
-			support3d = false,//Modernizr.csstransforms3d,
+			support3d = Modernizr.csstransforms3d,
 			support2d = Modernizr.csstransforms,
 			rgCurrentIndex = 0;
 			rgShowCount = 5,
@@ -160,6 +160,8 @@
 		}
 
 		function moveGallery(direction){
+			isAnimating = true;
+
 			rgCurrentIndex = direction + rgCurrentIndex;
 			if(rgCurrentIndex < 0){
 				rgCurrentIndex = rgItemsLength - 1;
@@ -170,27 +172,19 @@
 			setSectionItems(function(i,$item){
 				$item.css(rgTansCSS[i]);
 			});
+
+			setTimeout(function(){
+				isAnimating = false;
+			},animatDuration); //防止连击
 		}
 
 		opts.$btn_next.on('click',function(e){
-			if(isAnimating){
-				return;
-			}
-			isAnimating = true;
-			moveGallery(+1);
-			setTimeout(function(){
-				isAnimating = false;
-			},animatDuration);
+			!isAnimating && moveGallery(+1);
+			
 		});
 		opts.$btn_prev.on('click',function(e){
-			if(isAnimating){
-				return;
-			}
-			isAnimating = true;
-			moveGallery(-1);
-			setTimeout(function(){
-				isAnimating = false;
-			},animatDuration);
+			!isAnimating && moveGallery(-1);
+			
 		});
 
 		$(window).on('resize', function(e){
