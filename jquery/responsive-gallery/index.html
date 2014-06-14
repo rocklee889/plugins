@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<title>Responsive 3D Gallery</title>
 	<link rel="stylesheet" type="text/css" href="../jqueryjs/reset.css">
 	<style type="text/css">
@@ -114,7 +115,6 @@
 			font-size: 0.875em;
 			line-height: 1.3;
 		}
-
 		/*responsiv 3D gallery end*/
 	</style>
 	<script type="text/javascript" src="modernizr.custom.js"></script>
@@ -122,11 +122,11 @@
 	<script type="text/javascript" src="jquery.responsiveGallery.js"></script>
 	<script type="text/javascript">
 		$(function () {
-			$('.responsiveGallery-wrapper').responsiveGallery({
-				animatDuration: 400, //动画时长 单位 ms
-				$btn_prev: $('.responsiveGallery-btn_prev'),
-				$btn_next: $('.responsiveGallery-btn_next')
-			});
+$('.responsiveGallery-wrapper').responsiveGallery({
+	animatDuration: 400, //动画时长 单位 ms
+	$btn_prev: $('.responsiveGallery-btn_prev'),
+	$btn_next: $('.responsiveGallery-btn_next')
+});
 		});
 		
 	</script>
