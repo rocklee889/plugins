@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Responsive 3D Gallery</title>
+	<link rel="stylesheet" type="text/css" href="../jqueryjs/reset.css">
+	<style type="text/css">
+		html{
+
+			background-color: #888;
+		}
+		.w-gallery{
+			margin-top: 80px;
+		}
+		/*responsiv 3D gallery*/
+		.responsiveGallery-container{
+			width: 100%;
+			position: relative;
+		}
+
+		.responsiveGallery-btn{
+			position:absolute;
+			top: 0;
+			z-index: 3;
+			display: block;
+			width: 5%;
+			height: 100%;
+		}
+		.responsiveGallery-btn_prev{
+			background:url(images/arrow-left.png) center center no-repeat;
+			left:1%;
+		}
+		.responsiveGallery-btn_next{
+			background:url(images/arrow-right.png) center center no-repeat;
+			right:1%;
+		}
+
+		.responsiveGallery-wrapper{
+			position: relative;
+
+			width: 90%;
+			margin: 0 auto;
+
+			padding-top: 25%;
+
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-o-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			-webkit-perspective: 1000px;
+			-moz-perspective: 1000px;
+			-o-perspective: 1000px;
+			-ms-perspective: 1000px;
+			perspective: 1000px;
+		}
+		.responsiveGallery-item{
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 0;
+
+			display: block;
+			width: 20%;
+
+			opacity: 0;
+			visibility: hidden;
+		}
+		@media (max-width: 1000px){
+			.responsiveGallery-item{
+				width: 33.33%;
+			}
+			.responsiveGallery-wrapper{
+				padding-top: 45%;
+			}
+
+		}
+		@media (max-width: 560px){
+			.responsiveGallery-wrapper{
+				width: 60%;
+			}
+			.responsiveGallery-item{
+				width: 100%;
+			}
+			.responsiveGallery-wrapper{
+				padding-top: 80%;
+			}
+			.responsiveGallery-btn{
+				width: 8%;
+			}
+		}
+		.responsivGallery-link{
+			display: block;
+			width: 100%;
+			box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+		}
+		.responsivGallery-pic{
+			width: 100%;
+			height: auto;
+		}
+		.w-responsivGallery-info{
+			width: 80%;
+			margin: 0 auto;
+			padding-top: 5%;
+			text-align: center;
+			color: #fff;
+		}
+		.responsivGallery-name{
+			font-size: 1.25em;
+		}
+		.responsivGallery-position{
+			padding-top: 4%;
+			font-size: 0.875em;
+			line-height: 1.3;
+		}
+
+		/*responsiv 3D gallery end*/
+	</style>
+	<script type="text/javascript" src="modernizr.custom.js"></script>
+	<script type="text/javascript" src="../jqueryjs/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="jquery.responsiveGallery.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('.responsiveGallery-wrapper').responsiveGallery({
+				animatDuration: 400, //动画时长 单位 ms
+				$btn_prev: $('.responsiveGallery-btn_prev'),
+				$btn_next: $('.responsiveGallery-btn_next')
+			});
+		});
+		
+	</script>
+</head>
+<body>
+	<div class="w-gallery">
+      <section id="responsiveGallery-container" class="responsiveGallery-container">
+        <a class="responsiveGallery-btn responsiveGallery-btn_prev" href="javascript:void(0);"></a>
+        <a class="responsiveGallery-btn responsiveGallery-btn_next" href="javascript:void(0);"></a>
+        <ul class="responsiveGallery-wrapper"> 
+            <li class="responsiveGallery-item">
+              <a href="http://www.codingserf.com" target="_blank" class="responsivGallery-link"><img src="images/0.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+              <div class="w-responsivGallery-info">
+                <h2 class="responsivGallery-name">Google</h2>
+                <h3 class="responsivGallery-position">www.google.com</h3>
+              </div>
+            </li>
+            <li class="responsiveGallery-item">
+              <a href="http://www.codingserf.com" target="_blank" class="responsivGallery-link"><img src="images/1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+              <div class="w-responsivGallery-info">
+                <h2 class="responsivGallery-name">Baidu</h2>
+                <h3 class="responsivGallery-position">www.baidu.com</h3>
+              </div>
+            </li>
+            <li class="responsiveGallery-item">
+              <a href="http://www.codingserf.com" target="_blank" class="responsivGallery-link"><img src="images/2.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+              <div class="w-responsivGallery-info">
+                <h2 class="responsivGallery-name">Coding Serf</h2>
+                <h3 class="responsivGallery-position">www.codingserf.com</h3>
+              </div>
+            </li>
+            <li class="responsiveGallery-item">
+              <a href="http://www.codingserf.com" target="_blank" class="responsivGallery-link"><img src="images/3.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+              <div class="w-responsivGallery-info">
+                <h2 class="responsivGallery-name">Modernizr</h2>
+                <h3 class="responsivGallery-position">www.modernizr.com</h3>
+              </div>
+            </li>
+            <li class="responsiveGallery-item">
+              <a href="http://www.codingserf.com" target="_blank" class="responsivGallery-link"><img src="images/4.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+              <div class="w-responsivGallery-info">
+                <h2 class="responsivGallery-name">W3Cplus</h2>
+                <h3 class="responsivGallery-position">www.w3Cplus.com</h3>
+              </div>
+            </li>
+            <li class="responsiveGallery-item">
+              <a href="http://www.codingserf.com" target="_blank" class="responsivGallery-link"><img src="images/5.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+              <div class="w-responsivGallery-info">
+                <h2 class="responsivGallery-name">jQuery</h2>
+                <h3 class="responsivGallery-position">www.jquery.com</h3>
+              </div>
+            </li>
+            <li class="responsiveGallery-item">
+              <a href="http://www.codingserf.com" target="_blank" class="responsivGallery-link"><img src="images/6.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+              <div class="w-responsivGallery-info">
+                <h2 class="responsivGallery-name">Github</h2>
+                <h3 class="responsivGallery-position">www.github.com</h3>
+              </div>
+            </li>
+            <li class="responsiveGallery-item">
+              <a href="http://www.codingserf.com" target="_blank" class="responsivGallery-link"><img src="images/7.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+              <div class="w-responsivGallery-info">
+                <h2 class="responsivGallery-name">Bitbucket</h2>
+                <h3 class="responsivGallery-position">www.bitbucket.org</h3>
+              </div>
+            </li>
+            <li class="responsiveGallery-item">
+              <a href="http://www.codingserf.com" target="_blank" class="responsivGallery-link"><img src="images/8.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+              <div class="w-responsivGallery-info">
+                <h2 class="responsivGallery-name">JSFiddle</h2>
+                <h3 class="responsivGallery-position">www.jsfiddle.net</h3>
+              </div>
+            </li>
+        </ul>
+      </section>
+    </div>
+</body>
+</html>
